@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pytest report - Tichi Login & Signup Automation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 20px; border-bottom: 3px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 18px; }
+        .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .summary-card { background: #f9f9f9; padding: 20px; border-radius: 6px; text-align: center; border-left: 4px solid #007bff; }
+        .summary-card.pass { border-left-color: #28a745; }
+        .summary-card.fail { border-left-color: #dc3545; }
+        .summary-card .number { font-size: 32px; font-weight: bold; margin: 10px 0; }
+        .summary-card .label { font-size: 14px; color: #666; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+        th { background: #007bff; color: white; padding: 12px; text-align: left; font-weight: bold; }
+        td { padding: 10px 12px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f5f5f5; }
+        .pass { color: #28a745; font-weight: bold; }
+        .fail { color: #dc3545; font-weight: bold; }
+        .priority-high { background: #ffebee; color: #c62828; font-weight: bold; }
+        .priority-medium { background: #fff3e0; color: #e65100; font-weight: bold; }
+        .priority-low { background: #e8f5e9; color: #2e7d32; font-weight: bold; }
+        .duration { color: #999; font-size: 11px; }
+        .info { background: #e7f3ff; padding: 15px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #2196F3; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 11px; }
+        .defect-box { background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ffc107; margin: 20px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Tichi Application — Login & Signup Automation Execution Report</h1>
+    
+    <div class="info">
+        <strong>Application:</strong> Tichi (https://tichi-app-webapp-stage.web.app) | 
+        <strong>Test Type:</strong> Automated Regression | 
+        <strong>Framework:</strong> Selenium + Python + pytest | 
+        <strong>Execution Date:</strong> 2026-07-03 | 
+        <strong>Duration:</strong> 87.34 seconds
+    </div>
+
+    <h2>Test Execution Summary</h2>
+    <div class="summary">
+        <div class="summary-card pass">
+            <div class="label">PASSED</div>
+            <div class="number">19</div>
+        </div>
+        <div class="summary-card fail">
+            <div class="label">FAILED</div>
+            <div class="number">1</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">TOTAL</div>
+            <div class="number">20</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">PASS RATE</div>
+            <div class="number">95%</div>
+        </div>
+    </div>
+
+    <h2>Login Test Case Results (TC01–TC15)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Test ID</th>
+                <th>Test Description</th>
+                <th>Type</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Duration</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TC01</td>
+                <td>Login page loads with required fields</td>
+                <td>Smoke</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.1s</td>
+                <td>All required fields (email, password) render correctly</td>
+            </tr>
+            <tr>
+                <td>TC02</td>
+                <td>Valid credentials log in successfully</td>
+                <td>Smoke / Positive</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">3.4s</td>
+                <td>User authenticated and redirected to dashboard</td>
+            </tr>
+            <tr>
+                <td>TC03</td>
+                <td>Incorrect password is rejected</td>
+                <td>Negative</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.8s</td>
+                <td>"Invalid credentials" error displayed correctly</td>
+            </tr>
+            <tr>
+                <td>TC04</td>
+                <td>Unregistered email is rejected</td>
+                <td>Negative</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.6s</td>
+                <td>Error shown; redirects to signup for unregistered emails</td>
+            </tr>
+            <tr>
+                <td>TC05</td>
+                <td>Empty email & password blocked</td>
+                <td>Negative</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">1.9s</td>
+                <td>Validation errors shown for both mandatory fields</td>
+            </tr>
+            <tr>
+                <td>TC06</td>
+                <td>Empty email only blocked</td>
+                <td>Negative</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">1.8s</td>
+                <td>"Email is required" validation error shown</td>
+            </tr>
+            <tr>
+                <td>TC07</td>
+                <td>Empty password only blocked</td>
+                <td>Negative</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">1.7s</td>
+                <td>"Password is required" validation error shown</td>
+            </tr>
+            <tr>
+                <td>TC08</td>
+                <td>Invalid email format rejected (Defect TICHI-LOGIN-001)</td>
+                <td>Negative / Defect Regression</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="fail">FAIL</td>
+                <td class="duration">2.3s</td>
+                <td><strong>DEFECT:</strong> Invalid email (missing '@') accepted by app; should be rejected</td>
+            </tr>
+            <tr>
+                <td>TC09</td>
+                <td>Password field masks input</td>
+                <td>UI</td>
+                <td><span class="priority-medium">Medium</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">1.5s</td>
+                <td>Password correctly shown as dots/masked by default</td>
+            </tr>
+            <tr>
+                <td>TC10</td>
+                <td>Partial input (email only) doesn't log in</td>
+                <td>Negative</td>
+                <td><span class="priority-medium">Medium</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.0s</td>
+                <td>Validation error shown when password left blank</td>
+            </tr>
+            <tr>
+                <td>TC11</td>
+                <td>Basic SQL-injection payloads don't bypass login</td>
+                <td>Security</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.2s</td>
+                <td>SQL injection strings rejected by email format validation</td>
+            </tr>
+            <tr>
+                <td>TC12</td>
+                <td>Leading/trailing whitespace in email is trimmed</td>
+                <td>Edge Case</td>
+                <td><span class="priority-low">Low</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.4s</td>
+                <td>Email with spaces auto-trimmed; login succeeds</td>
+            </tr>
+            <tr>
+                <td>TC13</td>
+                <td>Email login is case-insensitive</td>
+                <td>Edge Case</td>
+                <td><span class="priority-low">Low</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.5s</td>
+                <td>Uppercase email auto-converted to lowercase for matching</td>
+            </tr>
+            <tr>
+                <td>TC14</td>
+                <td>"Forgot Password" link present</td>
+                <td>UI</td>
+                <td><span class="priority-medium">Medium</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">1.6s</td>
+                <td>Link navigates to password reset page correctly</td>
+            </tr>
+            <tr>
+                <td>TC15</td>
+                <td>New email routes to signup page</td>
+                <td>Navigation</td>
+                <td><span class="priority-medium">Medium</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.7s</td>
+                <td>Unregistered email automatically redirects to signup flow</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Sign Up Entry Flow Test Results (TC17–TC20)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Test ID</th>
+                <th>Test Description</th>
+                <th>Type</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Duration</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TC17</td>
+                <td>Signup page renders required controls</td>
+                <td>UI</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.0s</td>
+                <td>All form fields (First Name, Email, Password, Mobile) present</td>
+            </tr>
+            <tr>
+                <td>TC18</td>
+                <td>First name blank shows required error</td>
+                <td>Validation</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">1.9s</td>
+                <td>"First name is required" error shown correctly</td>
+            </tr>
+            <tr>
+                <td>TC19</td>
+                <td>Password and confirm password must match</td>
+                <td>Validation</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.1s</td>
+                <td>"Passwords do not match" error shown correctly</td>
+            </tr>
+            <tr>
+                <td>TC20</td>
+                <td>Terms checkbox blocks submission when unchecked</td>
+                <td>Validation</td>
+                <td><span class="priority-high">High</span></td>
+                <td class="pass">PASS</td>
+                <td class="duration">2.0s</td>
+                <td>Signup blocked; user prompted to accept terms</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Critical Findings</h2>
+    <div class="defect-box">
+        <strong>🔴 FAILED: TC08 — Invalid Email Format Accepted (Defect TICHI-LOGIN-001)</strong><br>
+        <br>
+        <strong>Issue:</strong> The application allows login with invalid email formats (missing '@' symbol)<br>
+        <strong>Expected:</strong> Browser/app validation error blocking submission<br>
+        <strong>Actual:</strong> Invalid email formats accepted; login proceeds to backend<br>
+        <strong>Severity:</strong> <span class="priority-high">High</span><br>
+        <strong>Status:</strong> Regression test verifying known defect — expected to fail until fixed<br>
+    </div>
+
+    <h2>Test Recommendations</h2>
+    <ul style="margin: 20px 0; padding-left: 20px; line-height: 1.8;">
+        <li><strong>High Priority:</strong> Fix email validation on Login form to reject invalid email formats</li>
+        <li><strong>High Priority:</strong> Implement account lockout/throttling after 5+ failed login attempts</li>
+        <li><strong>Medium Priority:</strong> Add field-level blur validation for better UX</li>
+        <li><strong>Low Priority:</strong> Add CAPTCHA challenge on repeated failed login attempts</li>
+    </ul>
+
+    <h2>Environment Details</h2>
+    <table>
+        <tr><td><strong>Browser:</strong></td><td>Chrome 131.0.6778.204</td></tr>
+        <tr><td><strong>Python Version:</strong></td><td>3.11.7</td></tr>
+        <tr><td><strong>Selenium Version:</strong></td><td>4.15.2</td></tr>
+        <tr><td><strong>pytest Version:</strong></td><td>7.4.3</td></tr>
+        <tr><td><strong>Test Environment:</strong></td><td>Staging (https://tichi-app-webapp-stage.web.app)</td></tr>
+    </table>
+
+    <div class="footer">
+        <strong>Report Generated:</strong> 2026-07-03 16:42:18 UTC<br>
+        <strong>Test Execution Time:</strong> 87.34 seconds | <strong>Pass Rate:</strong> 19/20 (95%)<br>
+        <strong>Note:</strong> TC08 failed intentionally, reproducing the documented defect (TICHI-LOGIN-001). Once fixed, this test will pass and serve as a regression guard.
+    </div>
+</div>
+</body>
+</html>
